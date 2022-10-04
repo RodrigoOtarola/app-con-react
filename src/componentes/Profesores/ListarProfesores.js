@@ -1,12 +1,12 @@
-import react, { useState, useEffect, Fragment } from "react";
+/*import react, { useState, useEffect, Fragment } from "react";
 import Axios from "axios";
 
 function Profesores() {
-  const [post, setPost] = react.useState(null);
+  const [ListProfesores, setListProfesores] = react.useState([]);
 
   useEffect(() => {
-    Axios.get("http://localhost:3001/profesores").then((response)=>{
-        console.log(response);
+    Axios.get("http://localhost:3001/profesores").then((response) => {
+      setListProfesores(response.data);
     });
   }, []);
 
@@ -14,19 +14,15 @@ function Profesores() {
 
   return (
     <div>
-      <p>{post.nombre}</p>
-      <p>{post.apellido}</p>
+      {ListProfesores.map((val) => {
+        return (
+          <p>
+            {val.nombre} {val.apellido}
+          </p>
+        );
+      })}
     </div>
-
   );
 }
 
-export default Profesores;
-/*
-    <Fragment>
-      <div>
-        <p>{post.nombre}</p>
-        <p>{post.apellido}</p>
-      </div>
-    </Fragment>
-*/
+export default Profesores;*/
