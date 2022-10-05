@@ -1,6 +1,21 @@
+
 .App {
+  margin-top: 10px;
   text-align: center;
-  background-color: #61dafb;
+  font-size: 20px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+a{
+  text-decoration: none;
+}
+
+table{
+  border  : 1px solid black;
+  margin: 0 auto;;
+}
+th,td{
+  border: 1px solid black;
 }
 
 .App-logo {

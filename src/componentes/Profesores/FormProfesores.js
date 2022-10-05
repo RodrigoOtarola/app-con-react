@@ -8,13 +8,23 @@ function Form() {
   const [apellido, setApellido] = useState("");
   //const [get,setGet] = useState(null);
   const [ListProfesores, setListProfesores] = useState([]);
+  const [CountProfesores, setCountProfesores] = useState([]);
 
+  //Listar Profesores
   useEffect(() => {
     Axios.get("http://localhost:3001/profesores").then((response) => {
       setListProfesores(response.data);
     });
   }, []);
 
+  //Contar profesores
+  useEffect(() => {
+    Axios.get("http://localhost:3001/profesoresCount").then((response) => {
+      setCountProfesores(response.data);
+    });
+  }, []);
+
+  //Ingresar profesores
   const submit = () => {
     Axios.post("http://localhost:3001/ingresaProfesor", {
       nombre: nombre,
@@ -69,7 +79,12 @@ function Form() {
                 );
               })}
             </tbody>
-          </table>
+          </table>          
+          {CountProfesores.map((val) => {
+            return(
+              <h3>Contador: <span>{val.total}</span></h3>              
+            )
+          })}
         </div>
       </div>
     </Fragment>
